@@ -8,8 +8,13 @@ module.exports = {
 			if (err) {
 				next(err);
 			} else {
-				movieInfo.passNum = decryption.decrypt(movieInfo.passNum)
-				res.json({status:"success", message: "Record found!!!", data: movieInfo});
+				if(movieInfo && movieInfo.passNum) {
+					movieInfo.passNum = decryption.decrypt(movieInfo.passNum)
+					res.json({status:"success", message: "Record found!!!", data: movieInfo});
+				} else {
+					res.json({status:"success", message: "No Record found", data: null});
+				}
+				
 			}
 		});
 	},
@@ -32,7 +37,7 @@ module.exports = {
 	},
 
 	updateById: function(req, res, next) {
-		movieModel.findByIdAndUpdate(req.params.userId,{name:req.body.name}, function(err, movieInfo){
+		movieModel.findByIdAndUpdate(req.params.userId,{firstName: req.body.first_name, lastName: req.body.last_name, passNum: req.body.passport_num}, function(err, movieInfo){
 
 			if(err)
 				next(err);

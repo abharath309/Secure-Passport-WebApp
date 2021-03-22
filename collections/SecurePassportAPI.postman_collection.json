@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "d7700b60-2e8d-4c0c-9695-f88366b729ba",
+		"name": "SecurePassportAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Passport",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer {{AccessToken}}\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "Bharath",
+							"type": "text"
+						},
+						{
+							"key": "passport_num",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/passport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"passport"
+					]
+				},
+				"description": "Create Passport"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Bharath Ananth",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "bharathananth309@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ny8hksae",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Record",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Okta Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"AccessToken\", jsonData.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic MG9hYzhpbHcycDdIQUxLOXU1ZDY6MlZmQUVNZWpTbDVCZE9LajhyRDZ4U3ZGc2F6bFllR0pxTG5PQ2lXRQ==",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "https://dev-19656455.okta.com/oauth2/default/v1/token?grant_type=client_credentials&scope=custom",
+					"protocol": "https",
+					"host": [
+						"dev-19656455",
+						"okta",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "scope",
+							"value": "custom"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Records",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer {{AccessToken}}\"",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/passport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"passport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Record",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer {{AccessToken}}\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "first_name",
+							"value": "\"Test\"",
+							"type": "text"
+						},
+						{
+							"key": "passport_num",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/passport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"passport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Record",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "\"Bearer {{AccessToken}}\"",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/passport/:userId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"passport",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "60580f37ed40df51847089e3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -36,6 +36,14 @@ npm install
 ng serve
 ```
 
+## Installation
+
+To use the latest published version, click the following button to import the SparkPost API as a collection:
+
+[![Run in Postman](https://s3.amazonaws.com/postman-static/run-button.png)](https://www.getpostman.com/collections/795e64bfc59a049adb96)
+
+You can also download the collection file from this repo, then import directly into Postman.
+
 ## Links
 
 This example uses the following open source libraries from Okta:

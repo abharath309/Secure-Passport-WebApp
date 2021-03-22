@@ -13,7 +13,7 @@ spec:
         app: nodejs
     spec:
       containers:
-      - name: nodongo
+      - name: securePassportAPI
         image: latest/node-server
         ports:
         - containerPort: 3000

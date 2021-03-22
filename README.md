@@ -44,6 +44,7 @@ gulp lint
 Deploy to Kubernetes
 ```bash
 kubectl create -f deploy.yaml
+```
 
 ## Installation
 

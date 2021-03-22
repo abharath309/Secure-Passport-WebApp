@@ -41,6 +41,11 @@ Run eslint to check linting errors:
 gulp lint
 ```
 
+Run in Docker:
+```bash
+docker-compose up
+```
+
 Deploy to Kubernetes
 ```bash
 kubectl create -f deploy.yaml

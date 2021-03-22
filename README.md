@@ -36,26 +36,6 @@ npm install
 ng serve
 ```
 
-### Create a New OIDC App in Okta
-
-To create a new OIDC app on Okta:
-
-1. Log in to your developer account, navigate to **Applications**, and click on **Add Application**.
-3. Select **Single-Page App** and click **Next**. 
-4. Give the application a name, change all instances of `localhost:8080` to `localhost:4200` and click **Done**.
-
-#### Server Configuration
-
-Set your domain and copy the `clientId` into `ProductsServer/src/auth.ts`. 
-
-**NOTE:** The value of `{yourOktaDomain}` should be something like `dev-123456.oktapreview`. Make sure you don't include `-admin` in the value!
-
-```ts
-const oktaJwtVerifier = new OktaJwtVerifier({
-  clientId: '{clientId}',
-  issuer: 'https://{yourOktaDomain}/oauth2/default'
-});
-
 ## Links
 
 This example uses the following open source libraries from Okta:

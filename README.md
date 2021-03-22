@@ -36,6 +36,11 @@ npm install
 ng serve
 ```
 
+Run eslint to check linting errors:
+```bash
+gulp lint
+```
+
 ## Installation
 
 To use the latest published version, click the following button to import the SparkPost API as a collection:

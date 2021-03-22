@@ -1,11 +1,6 @@
 # Secure-Passport-WebApp
 Secure Passport Web App
-
-# Basic CRUD App with Angular and Node
- 
-This example app shows how to build a basic CRUD app with Angular and Node.
-
-Please read [Build a Basic CRUD App with Angular and Node](https://developer.okta.com/blog/2018/10/30/basic-crud-angular-and-node) to see how this app was created.
+This example app shows how to build a secure webApp to protect PII Data with Angular and Node.
 
 **Prerequisites:** [Node.js](https://nodejs.org/).
 
@@ -21,21 +16,20 @@ Please read [Build a Basic CRUD App with Angular and Node](https://developer.okt
 To install this example application, run the following commands:
 
 ```bash
-git clone https://github.com/oktadeveloper/okta-angular-node-example.git
-cd okta-angular-node-example
+git clone  https://github.com/abharath309/Secure-Passport-WebApp.git
+cd Secure-Passport-WebApp
 ```
 
 This will get a copy of the project installed locally. To install all of its dependencies and start each app, follow the instructions below.
 
-To run the server, cd into the `ProductsServer` directory and run:
+To run the server, run the below:
  
 ```bash
 npm i
-npm run build
 npm start
 ```
 
-To run the client, cd into the `MyAngularClient` directory and run:
+To run the client, cd into the `client` directory and run:
  
 ```bash
 npm install 
@@ -61,19 +55,6 @@ const oktaJwtVerifier = new OktaJwtVerifier({
   clientId: '{clientId}',
   issuer: 'https://{yourOktaDomain}/oauth2/default'
 });
-```
-
-#### Client Configuration
-
-For the client, set the `issuer` and copy the `clientId` into `MyAngularClient/src/app/app.module.ts`.
-
-```typescript
-OktaAuthModule.initAuth({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '{clientId}'
-}),
-```
 
 ## Links
 

@@ -41,6 +41,10 @@ Run eslint to check linting errors:
 gulp lint
 ```
 
+Deploy to Kubernetes
+```bash
+kubectl create -f deploy.yaml
+
 ## Installation
 
 To use the latest published version, click the following button to import the SparkPost API as a collection:
